@@ -52,7 +52,7 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="password" name="password" placeholder="Masukkan password anda...">
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <a href="" class="btn btn-primary btn-user btn-block">
                                             Masuk
                                         </a>
                                         <hr>

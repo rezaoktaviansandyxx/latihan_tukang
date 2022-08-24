@@ -13,4 +13,8 @@ class userController extends Controller
     {
         return view('register');
     }
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
 }

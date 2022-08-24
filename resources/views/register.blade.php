@@ -56,7 +56,7 @@
                                             id="repeatPassword" placeholder="Konfirmasi kata sandi">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                <a href="login" class="btn btn-primary btn-user btn-block">
                                     Daftar Akun
                                 </a>
                                 <hr>
