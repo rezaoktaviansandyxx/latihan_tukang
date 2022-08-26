@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -42,22 +39,37 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang!</h1>
                                     </div>
-                                    <form class="user">
+                                    @if(session()->has('success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{session('success')}}
+                                        <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                    </div>
+                                    @endif
+                                    @if(session()->has('loginError'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{session('loginError')}}
+                                        <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                    </div>
+                                    @endif
+                                    <form class="user" action="/login" method="post">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="email" name="email"
-                                                placeholder="Masukkan email Anda...">
+                                            <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" value="{{old('email')}}" id="email" name="email" placeholder="Masukkan email Anda..." required>
+                                            @error('email')
+                                            <div class="invalid-feedback">
+                                                {{$message}}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="password" name="password" placeholder="Masukkan password anda...">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Masukkan password anda..." required>
                                         </div>
-                                        <a href="" class="btn btn-primary btn-user btn-block">
+                                        <button class="btn btn-primary btn-user btn-block">
                                             Masuk
-                                        </a>
+                                        </button>
                                         <hr>
                                     </form>
-                                    
+
                                     <div class="text-center">
                                         <a class="small" href="forgot-password">Lupa Password?</a>
                                     </div>
