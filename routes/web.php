@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,10 +21,11 @@ Route::get('/', function () {
 });
 
 //route login
-Route::get('/login', [UserController::class, 'login']);
-Route::post('/login', [UserController::class, 'auth']);
+Route::get('/login', [LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'auth']);
 
-Route::get('/register', [UserController::class, 'registration']);
+Route::get('/register', [RegisterController::class, 'create']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 //route dashboard
 ROute::get('/dashboard',[DashboardController::class, 'dashboard']);
